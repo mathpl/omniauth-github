@@ -6,7 +6,8 @@ module OmniAuth
       option :client_options, {
         :site => 'https://api.github.com',
         :authorize_url => 'https://github.com/login/oauth/authorize',
-        :token_url => 'https://github.com/login/oauth/access_token'
+        :token_url => 'https://github.com/login/oauth/access_token',
+        :proxy => ENV['GITHUB_HTTP_PROXY'] ? URI(ENV['GITHUB_HTTP_PROXY']) : nil
       }
 
       def request_phase
